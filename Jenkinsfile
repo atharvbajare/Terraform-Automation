@@ -20,11 +20,11 @@ pipeline {
             }
         }
 
-        stage('Action') {
-        steps {
-            echo "Terraform action is --> ${env.action}"
-            sh "terraform ${env.action} --auto-approve"
+        stage('Terraform Action') {
+            steps {
+                echo "Terraform action is --> ${params.action}"
+                sh "terraform ${params.action} --auto-approve"
+            }
         }
-    }
     }
 }
